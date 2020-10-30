@@ -2,16 +2,22 @@
 let footerMenuJSON = `
 [{"id":"home","href":"/","icon":"home","active":true},{"id":"bag","href":"/","icon":"bag","active":false},{"id":"cart","href":"/","icon":"cart","active":false},{"id":"user","href":"/","icon":"user","active":false}]`
 
-const itemsMenu = JSON.parse(footerMenuJSON)
-
 let PATH = '',
-  textHTML = ''
+  textHTML = '',
+  itemsMenu = []
+
+const setItemsMenu = strJSON => {
+  itemsMenu = strJSON !== '' ? JSON.parse(strJSON) : []
+}
 
 const getTitle = () => {
   return `<div class="title">${PATH}</div>`
 }
 
 const getMenuFooter = () => {
+  if (!itemsMenu) {
+    return
+  }
   const items = itemsMenu.map(item => {
     let classFocus = item.active ? 'footer__item--focus' : ''
     PATH = item.active ? item.id : PATH
@@ -61,6 +67,7 @@ const generateMain = () => {
 }
 
 const generateFooter = () => {
+  const main = document.querySelector('.main')
   textHTML = `
     <footer class="footer">
         <div class="container">
@@ -69,9 +76,10 @@ const generateFooter = () => {
             </div>
         </div>
     </footer>`
-  document.body.insertAdjacentHTML('beforeend', textHTML)
+  main.insertAdjacentHTML('beforeend', textHTML)
   updateTitle()
 }
 
+setItemsMenu(footerMenuJSON)
 generateMain()
 generateFooter()
