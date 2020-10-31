@@ -4,6 +4,7 @@
 
 * <a href="https://t.me/ovmst/52" target="_blank">Материалы для реализации</a>   
 * <a href="https://t.me/ovmst_chat" target="_blank">Чат для обсуждения</a>
+* <a href="https://youtu.be/66BHGBY73C0" target="_blank">Видео сравнение методов</a>
 
 ## Compliments
 
